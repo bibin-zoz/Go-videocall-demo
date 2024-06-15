@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Chat App</title>
+</head>
+<body>
+    <div>
+        <button onclick="createRoom()">Create Room</button>
+    </div>
+
+    <script>
+        async function createRoom() {
+            const response = await fetch("/create", { method: "POST" });
+            const data = await response.json();
+            window.location.href = `/room/${data.room_id}`;
+        }
+    </script>
+</body>
+</html>
